@@ -6,6 +6,7 @@ public class NodoValor implements CompositeEA {
     double valor;
 
     /**
+     * Constructor    
      *
      * @param valor
      */
