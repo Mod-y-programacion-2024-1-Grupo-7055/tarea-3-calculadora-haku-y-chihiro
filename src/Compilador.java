@@ -19,8 +19,12 @@ public class Compilador {
      * {@link StringTokenizer}
      */
     public StringTokenizer analisisLexico(String cadena) {
-        cadena = cadena.replace(" ", "");
-        StringTokenizer tokenizer = new StringTokenizer(cadena, "()\\+\\*\\-\\/", true);
+        cadena = cadena.replace("sin", "s")
+                .replace("cos", "c")
+                .replace("tan", "t")
+                .replace("√", "q")
+                .replace(" ", "");
+        StringTokenizer tokenizer = new StringTokenizer(cadena, "()\\+\\*\\-\\/\\/sctq", true);
         return tokenizer;
     }
 
