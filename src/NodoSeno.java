@@ -2,6 +2,7 @@
  * Clase que nos permite evaluar el Seno en nuestra calculadora.
  */
 
+//Clase terminada...
 public class NodoSeno extends NodoOperador {
 
     
@@ -19,12 +20,11 @@ public class NodoSeno extends NodoOperador {
 
      /**
      * La evaluación del nodo, el seno del hijo izquierdo.
-     * @return la tangente en radianes del hijo izquierdo.
+     * @return el seno en radianes del hijo izquierdo.
      */
     @Override
     public double evalua() {
-	// La manera por omisión seria resolverlo por radianes.
-        return Math.sin(Math.toRadians(izq.evalua()));
+	return Math.sin(Math.toRadians(izq.evalua()));
     }
 }
 
