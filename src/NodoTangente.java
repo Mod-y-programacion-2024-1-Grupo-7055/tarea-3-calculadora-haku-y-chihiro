@@ -3,7 +3,7 @@
  * en nuestra calculadora.
  */
 
-
+//Clase terminada...
 public class NodoTangente extends NodoOperador {
 
 /**
