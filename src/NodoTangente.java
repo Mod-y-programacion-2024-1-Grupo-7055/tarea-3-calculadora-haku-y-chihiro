@@ -13,7 +13,7 @@ public class NodoTangente extends NodoOperador {
     // haremos que el hijo derecho sea nulo.
     super(izq, null);
     //Esto no estoy seguro aun.
-    precedence = 3;
+    precedence = 2;
   }
 
 /**
