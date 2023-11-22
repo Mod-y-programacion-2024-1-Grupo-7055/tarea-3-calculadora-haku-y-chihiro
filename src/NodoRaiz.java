@@ -2,6 +2,7 @@
  * Clase que nos permite evaluar la raiz en nuestra calculadora.
  */
 
+// Clase terminada...
 public class NodoRaiz extends NodoOperador {
 
     /**
