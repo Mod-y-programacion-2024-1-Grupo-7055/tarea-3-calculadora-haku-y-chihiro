@@ -1,10 +1,12 @@
 /** 
  * @author Alejandro Hernández Mora <alejandrohmora@ciencias.unam.mx>
  */
+
+//Clase terminada...
 public class NodoResta extends NodoOperador {
     
     /**
-     * Constructor
+     * Constructor de la resta.
      * @param izq
      * @param der
      */
