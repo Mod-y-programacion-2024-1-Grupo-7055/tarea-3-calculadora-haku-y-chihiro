@@ -14,7 +14,7 @@ public class NodoSeno extends NodoOperador {
 	// haremos que el hijo derecho sea nulo.
         super(izq, null);
 	// Eso esta por verse
-        precedence = 3;
+        precedence = 2;
     }
 
      /**
