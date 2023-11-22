@@ -1,6 +1,8 @@
 /**
  *Clase que nos permite evaluar el Coseno en nuestra calculadora.
  */
+
+//Clase terminada...
 public class NodoCoseno extends NodoOperador {
 
   
