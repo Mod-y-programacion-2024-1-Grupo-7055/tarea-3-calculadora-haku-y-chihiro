@@ -1,29 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
 /**
- *
  * @author Alejandro Hernández Mora <alejandrohmora@ciencias.unam.mx>
  */
 public class NodoMultiplicacion extends NodoOperador {
 
     /**
-     *
+     * Construtor de la multiplicación
      * @param izq
      * @param der
      */
     public NodoMultiplicacion(CompositeEA izq, CompositeEA der) {
         super(izq, der);
-        precedence=1;
+        precedence = 1;
     }
 
     /**
-     *
-     * @return
+     * La evaluación de los nodos. Resultado de la multiplicación entre
+     * hijo izquierdo e hijo derecho.
+     * @return Valor de multiplicar izq. por der.
      */
     @Override
     public double evalua() {
