@@ -1,11 +1,13 @@
 /**
- * Clase que nos permite evaluar la Tangente en nuestra calculadora.
+ * Clase que nos permite evaluar la Tangente de un número
+ * en nuestra calculadora.
  */
+
+
 public class NodoTangente extends NodoOperador {
 
 /**
- * Constructor
- *
+ * Constructor de la Tangente.
  * @param izq
  */        
   public NodoTangente(CompositeEA izq) {
@@ -22,7 +24,6 @@ public class NodoTangente extends NodoOperador {
  */
   @Override
   public double evalua(){
-      // La manera de resolverlo por omisión seria por radianes.
       return Math.tan(Math.toRadians(izq.evalua()));
     }    
 }
