@@ -1,6 +1,8 @@
 /**
  * @author Alejandro Hernández Mora <alejandrohmora@ciencias.unam.mx>
  */ 
+
+//Clase terminada...
 public class NodoParentesis extends NodoOperador {
 
     /**
