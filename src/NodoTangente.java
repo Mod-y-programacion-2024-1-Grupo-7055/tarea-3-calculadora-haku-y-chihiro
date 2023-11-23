@@ -10,10 +10,10 @@ public class NodoTangente extends NodoOperador {
  * Constructor de la Tangente.
  * @param izq
  */        
-  public NodoTangente(CompositeEA izq) {
+  public NodoTangente(CompositeEA der) {
     // Dado que esta operación solo necesita un parametro,
     // haremos que el hijo derecho sea nulo.
-    super(izq, null);
+    super(null, der);
     //Esto no estoy seguro aun.
     precedence = 2;
   }
@@ -24,7 +24,7 @@ public class NodoTangente extends NodoOperador {
  */
   @Override
   public double evalua(){
-      return Math.tan(Math.toRadians(izq.evalua()));
+      return Math.tan(Math.toRadians(der.evalua()));
     }    
 }
   
