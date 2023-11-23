@@ -2,7 +2,7 @@
  * @author Alejandro Hernández Mora <alejandrohmora@ciencias.unam.mx>
  */ 
 
-//Clase terminada...
+//CLASE TERMINADA
 public class NodoParentesis extends NodoOperador {
 
     /**
@@ -10,7 +10,8 @@ public class NodoParentesis extends NodoOperador {
      */
     public NodoParentesis() {
         super();
-        precedence = 3;
+        //La mayor precedencia.
+        precedence = 4;
     }
 
     /**
