@@ -80,18 +80,25 @@ public class Compilador {
                 popIntoOutput(top, salida);
             }
         }
+        // Si la salida no es "Correcta", manda error.
+        if (salida.size() != 1) 
+            throw new ErrorDeSintaxisException("Error en la expresión");
+        
         return salida.pop();
     }
 
     private void casoOperador(Stack<NodoOperador> operadores,
             Stack<CompositeEA> salida, NodoOperador no) throws ErrorDeSintaxisException {
         while (!operadores.empty()) {
-            NodoOperador top = operadores.pop();
-            if ((top.getPrecedence() <= no.getPrecedence() || (top instanceof NodoParentesis))
-                    && top.getPrecedence() != 3) {
-                operadores.push(top);
+            // Usaremos peek para no eliminar al elemento todavia y solo verlo.
+            NodoOperador top = operadores.peek();
+            if ((top.getPrecedence() <= no.getPrecedence() || (top instanceof NodoParentesis)))
+                //Si la precendencia tiene un valor menor o si estamos trabajando con un 
+                //parentesis, nos saldremos del ciclo.
                 break;
-            } else {
+             else {
+                 //Ahora si sacamos con pop.
+                operadores.pop();
                 popIntoOutput(top, salida);
             }
         }
@@ -102,7 +109,7 @@ public class Compilador {
         try {
             CompositeEA der = salida.pop();
             op.setDer(der);
-            if (op.getPrecedence() < 3) {
+            if (op.getPrecedence() < 4) {
                 CompositeEA izq = salida.pop();
                 op.setIzq(izq);
             }
