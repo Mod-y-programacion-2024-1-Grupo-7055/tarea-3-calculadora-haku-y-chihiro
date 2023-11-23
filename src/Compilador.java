@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
  *
  * @author Alejandro Hernández Mora <alejandrohmora@ciencias.unam.mx>
  */
+//CLASE TERMINADA
 public class Compilador {
 
     /**
@@ -22,9 +23,9 @@ public class Compilador {
         cadena = cadena.replace("sin", "s")
                 .replace("cos", "c")
                 .replace("tan", "t")
-                .replace("√", "q")
+                .replace("√", "r")
                 .replace(" ", "");
-        StringTokenizer tokenizer = new StringTokenizer(cadena,"()\\+\\*\\-\\/sctq", true);
+        StringTokenizer tokenizer = new StringTokenizer(cadena,"()\\+\\*\\-\\/\\s\\c\\t\\r", true);
         return tokenizer;
     }
 
@@ -81,9 +82,10 @@ public class Compilador {
                 popIntoOutput(top, salida);
             }
         }
-        if (salida.size() != 1) {
+        //Si la salida no es solamente una, se trata de un error.
+        if (salida.size() != 1) 
             throw new ErrorDeSintaxisException("Error en la expresión");
-        }
+        
         return salida.pop();
     }
     
@@ -91,10 +93,12 @@ public class Compilador {
     private void casoOperador(Stack<NodoOperador> operadores,
     Stack<CompositeEA> salida, NodoOperador no) throws ErrorDeSintaxisException {
 while (!operadores.empty()) {
+    //Cambiaremos a peek() en vez de pop(), pues queremos verlo antes de eliminarlo.
     NodoOperador top = operadores.peek(); 
-    if (top.getPrecedence() < no.getPrecedence() || (top instanceof NodoParentesis)) {
+    if (top.getPrecedence() < no.getPrecedence() || (top instanceof NodoParentesis)) {    
         break; 
     } else {
+        //Ahora si sacamos con pop()
         operadores.pop(); 
         popIntoOutput(top, salida); 
     }
