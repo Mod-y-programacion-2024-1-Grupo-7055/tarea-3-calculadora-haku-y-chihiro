@@ -23,8 +23,8 @@ public abstract class NodoOperador implements CompositeEA{
      * Constructor por omisión.
      */
     public NodoOperador(){
-        izq = null;
-        der = null;
+        izq=null;
+        der=null;
     }
 
     /**
@@ -33,8 +33,8 @@ public abstract class NodoOperador implements CompositeEA{
      * @param der
      */
     public NodoOperador(CompositeEA izq, CompositeEA der) {
-        this.izq = izq;
-        this.der = der;
+        this.izq=izq;
+        this.der=der;
     }
     
     /**
@@ -42,29 +42,29 @@ public abstract class NodoOperador implements CompositeEA{
      * @param n
      */
     public NodoOperador(NodoOperador n){
-        izq = n.izq;
-        der = n.der;
+        izq=n.izq;
+        der=n.der;
     }
     
     /**
-    * Método set para cambiar el valor del hijo izquierdo.
+     * 
      * @param izq
      */
     public void setIzq(CompositeEA izq){
-        this.izq = izq;
+        this.izq=izq;
     }
     
     /**
-     * Método set para cambiar el valor del hijo derecho.
+     *
      * @param der
      */
     public void setDer(CompositeEA der){
-        this.der = der;
+        this.der=der;
     }
     
     /**
-     * Método para obtener el valor de la precedencia.
-     * @return precedencia.
+     *
+     * @return
      */
     public int getPrecedence(){
         return precedence;
@@ -74,7 +74,7 @@ public abstract class NodoOperador implements CompositeEA{
      * Método que se encarga de la represencación en una cadena de los nodos.
      * Este método se implementa en esta clase abstracta para evitar repetir el
      * código en las clases concretas.
-     * @return la represencación en una cadena de los nodos.
+     * @return 
      */
     @Override
     public String toString() {
@@ -99,35 +99,31 @@ public abstract class NodoOperador implements CompositeEA{
      * @throws ErrorDeSintaxisException En caso de recibir caracteres extraños.
      */
     public static NodoOperador factoryMethodOperadorNuevo(String s,
-            boolean anteriorEsOperador) throws ErrorDeSintaxisException{
+							  boolean anteriorEsOperador) throws ErrorDeSintaxisException{
         switch (s) {
-                case "+":
-                    return new NodoSuma(null,null);
-                case "-":
-                    NodoOperador o = new NodoResta(null,null);
-                    o.precedence=anteriorEsOperador? 3:0;
-                    return o;
-                case "*":
-                    return new NodoMultiplicacion(null,null);
-                case "/":
-                    return new NodoDivision(null,null);
-                case "(":
-                    return new NodoParentesis();
-                //La raiz
-                case "q":
-		    return new NodoRaizCuadrada(null);
-                //Seno
-	        case "s":
-	            return new NodoSeno(null);
-                //Coseno
-	        case "c":
-	            return new NodoCoseno(null);
-                //Tangente
-	        case "t":
-	            return new NodoTangente(null);
-                default:
-                    throw new ErrorDeSintaxisException("Error de Sintáxis");
-            }
+	case "+":
+	    return new NodoSuma(null,null);
+	case "-":
+	    NodoOperador o = new NodoResta(null,null);
+	    o.precedence=anteriorEsOperador? 3:0;
+	    return o;
+	case "*":
+	    return new NodoMultiplicacion(null,null);
+	case "/":
+	    return new NodoDivision(null,null);
+	case "(":
+	    return new NodoParentesis();
+	case "q":
+	    return new NodoRaizCuadrada(null);
+	case "s":
+	    return new NodoSeno(null);
+	case "c":
+	    return new NodoCoseno(null);
+	case "t":
+	    return new NodoTangente(null);
+	default:
+	    throw new ErrorDeSintaxisException("Error de Sintáxis");
+	}
     }
     
 }
