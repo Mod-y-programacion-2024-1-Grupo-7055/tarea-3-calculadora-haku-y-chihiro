@@ -2,25 +2,28 @@
  * Clase que nos permite evaluar el Seno en nuestra calculadora.
  */
 
-//Clase terminada...
+//CLASE TERMINADA.
 public class NodoSeno extends NodoOperador {
 
     
     /**
-     * Constructor
-     * @param izq
+     * Constructor.
+     * @param der
      */
     public NodoSeno(CompositeEA der) {
-	// Dado que esta operación solo necesita un parametro,
-	// haremos que el hijo derecho sea nulo.
+	// Necesitamos que uno de los dos parametros sea nulo,
+        // pues solo requerimos uno para esta función.
+        // No estamos seguros de porque no funciona si hago null el
+        // hijo derecho, por eso hacemos null el hijo izq.
         super(null, der);
-	// Eso esta por verse
-        precedence = 2;
+	// Mayor que las otra operaciones y menor que los parentesis.
+        precedence = 3;
     }
 
-     /**
-     * La evaluación del nodo, el seno del hijo izquierdo.
-     * @return el seno en radianes del hijo izquierdo.
+    /**
+     * La evaluación del nodo. Resultado de evaluar el hijo
+     * derecho en sin().
+     * @return Valor de evaluar hijo der.
      */
     @Override
     public double evalua() {
