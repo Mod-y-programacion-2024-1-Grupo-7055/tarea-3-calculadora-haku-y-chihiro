@@ -2,7 +2,7 @@ public class NodoCoseno extends NodoOperador {
 
     public NodoCoseno(CompositeEA der) {
         super(null, der);
-        precedence = 2;
+        precedence = 3;
     }
 
     @Override
