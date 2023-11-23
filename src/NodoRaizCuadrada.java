@@ -9,10 +9,10 @@ public class NodoRaizCuadrada extends NodoOperador {
      * Constructor de Raiz.
      * @param izq
      */
-    public NodoRaizCuadrada(CompositeEA izq) {
+    public NodoRaizCuadrada(CompositeEA der) {
 	// Dado que esta operación solo necesita un parametro,
 	// haremos que el hijo derecho sea nulo.
-        super(izq, null);
+        super(null, der);
 	// Eso esta por verse
         precedence = 2;
     }
@@ -23,6 +23,6 @@ public class NodoRaizCuadrada extends NodoOperador {
      */
     @Override
     public double evalua() {
-        return Math.sqrt(izq.evalua());
+        return Math.sqrt(der.evalua());
     }
 }
