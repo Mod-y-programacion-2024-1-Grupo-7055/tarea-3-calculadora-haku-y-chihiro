@@ -10,10 +10,10 @@ public class NodoSeno extends NodoOperador {
      * Constructor
      * @param izq
      */
-    public NodoSeno(CompositeEA izq) {
+    public NodoSeno(CompositeEA der) {
 	// Dado que esta operación solo necesita un parametro,
 	// haremos que el hijo derecho sea nulo.
-        super(izq, null);
+        super(null, der);
 	// Eso esta por verse
         precedence = 2;
     }
@@ -24,7 +24,7 @@ public class NodoSeno extends NodoOperador {
      */
     @Override
     public double evalua() {
-	return Math.sin(Math.toRadians(izq.evalua()));
+	return Math.sin(Math.toRadians(der.evalua()));
     }
 }
 
