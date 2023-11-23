@@ -3,13 +3,13 @@
  */
 
 // Clase terminada...
-public class NodoRaiz extends NodoOperador {
+public class NodoRaizCuadrada extends NodoOperador {
 
     /**
      * Constructor de Raiz.
      * @param izq
      */
-    public NodoRaiz(CompositeEA izq) {
+    public NodoRaizCuadrada(CompositeEA izq) {
 	// Dado que esta operación solo necesita un parametro,
 	// haremos que el hijo derecho sea nulo.
         super(izq, null);
