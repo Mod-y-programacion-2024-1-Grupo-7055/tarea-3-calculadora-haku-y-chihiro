@@ -9,7 +9,7 @@ public class NodoRaiz extends NodoOperador {
      * Constructor de Raiz.
      * @param der
      */
-    public NodoRaizCuadrada(CompositeEA der) {
+    public NodoRaiz(CompositeEA der) {
 	// Necesitamos que uno de los dos parametros sea nulo,
         // pues solo requerimos uno para esta función.
         // No estamos seguros de porque no funciona si hago null el
