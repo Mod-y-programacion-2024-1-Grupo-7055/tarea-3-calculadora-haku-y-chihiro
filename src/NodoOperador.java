@@ -114,17 +114,17 @@ public abstract class NodoOperador implements CompositeEA{
                 case "(":
                     return new NodoParentesis();
                 //La raiz
-                case "sqrt":
-	                return new NodoRaiz(null);
+                case "q":
+		    return new NodoRaizCuadrada(null);
                 //Seno
-	            case "sin":
-	                return new NodoSeno(null);
+	        case "s":
+	            return new NodoSeno(null);
                 //Coseno
-	            case "cos":
-	                return new NodoCoseno(null);
+	        case "c":
+	            return new NodoCoseno(null);
                 //Tangente
-	            case "tan":
-	                return new NodoTangente(null);
+	        case "t":
+	            return new NodoTangente(null);
                 default:
                     throw new ErrorDeSintaxisException("Error de Sintáxis");
             }
