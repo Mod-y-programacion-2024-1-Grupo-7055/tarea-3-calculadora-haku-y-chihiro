@@ -24,9 +24,11 @@ public class Compilador {
                 .replace("tan", "t")
                 .replace("√", "q")
                 .replace(" ", "");
-        StringTokenizer tokenizer = new StringTokenizer(cadena, "()\\+\\*\\-\\/\\/sctq", true);
+        StringTokenizer tokenizer = new StringTokenizer(cadena,"()\\+\\*\\-\\/sctq", true);
         return tokenizer;
     }
+
+
 
     /**
      * Método que devuelve un árbol de análisis sintáctico
@@ -40,17 +42,16 @@ public class Compilador {
         if (tokenizer == null) {
             return null;
         }
-
+    
         Stack<NodoOperador> operadores = new Stack<>();
         Stack<CompositeEA> salida = new Stack<>();
-
+    
         boolean anteriorEsOperador = true;
         while (tokenizer.hasMoreTokens()) {
             CompositeEA n;
             NodoOperador no;
             String actual = tokenizer.nextToken();
-            
-
+    
             if (actual.equals(")")) {
                 casoParentesisDerecho(operadores, salida);
                 anteriorEsOperador = true;
@@ -71,7 +72,7 @@ public class Compilador {
                 }
             }
         }
-        
+    
         while (!operadores.empty()) {
             NodoOperador top = operadores.pop();
             if (top instanceof NodoParentesis) {
@@ -80,36 +81,34 @@ public class Compilador {
                 popIntoOutput(top, salida);
             }
         }
-        // Si la salida no es "Correcta", manda error.
-        if (salida.size() != 1) 
+        if (salida.size() != 1) {
             throw new ErrorDeSintaxisException("Error en la expresión");
-        
+        }
         return salida.pop();
     }
+    
 
     private void casoOperador(Stack<NodoOperador> operadores,
-            Stack<CompositeEA> salida, NodoOperador no) throws ErrorDeSintaxisException {
-        while (!operadores.empty()) {
-            // Usaremos peek para no eliminar al elemento todavia y solo verlo.
-            NodoOperador top = operadores.peek();
-            if ((top.getPrecedence() <= no.getPrecedence() || (top instanceof NodoParentesis)))
-                //Si la precendencia tiene un valor menor o si estamos trabajando con un 
-                //parentesis, nos saldremos del ciclo.
-                break;
-             else {
-                 //Ahora si sacamos con pop.
-                operadores.pop();
-                popIntoOutput(top, salida);
-            }
-        }
-        operadores.push(no);
+    Stack<CompositeEA> salida, NodoOperador no) throws ErrorDeSintaxisException {
+while (!operadores.empty()) {
+    NodoOperador top = operadores.peek(); 
+    if (top.getPrecedence() < no.getPrecedence() || (top instanceof NodoParentesis)) {
+        break; 
+    } else {
+        operadores.pop(); 
+        popIntoOutput(top, salida); 
     }
+}
+operadores.push(no); 
+}
+
+    
 
     private void popIntoOutput(NodoOperador op, Stack<CompositeEA> salida) throws ErrorDeSintaxisException {
         try {
             CompositeEA der = salida.pop();
             op.setDer(der);
-            if (op.getPrecedence() < 4) {
+            if (op.getPrecedence() < 3) {
                 CompositeEA izq = salida.pop();
                 op.setIzq(izq);
             }
