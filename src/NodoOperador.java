@@ -6,6 +6,7 @@
  * 
  * @author Alejandro Hernández Mora <alejandrohmora@ciencias.unam.mx>
  */
+//CLASE TERMINADA
 public abstract class NodoOperador implements CompositeEA{
 
     /**
@@ -23,8 +24,8 @@ public abstract class NodoOperador implements CompositeEA{
      * Constructor por omisión.
      */
     public NodoOperador(){
-        izq=null;
-        der=null;
+        izq = null;
+        der = null;
     }
 
     /**
@@ -33,8 +34,8 @@ public abstract class NodoOperador implements CompositeEA{
      * @param der
      */
     public NodoOperador(CompositeEA izq, CompositeEA der) {
-        this.izq=izq;
-        this.der=der;
+        this.izq = izq;
+        this.der = der;
     }
     
     /**
@@ -42,29 +43,29 @@ public abstract class NodoOperador implements CompositeEA{
      * @param n
      */
     public NodoOperador(NodoOperador n){
-        izq=n.izq;
-        der=n.der;
+        izq = n.izq;
+        der = n.der;
     }
     
     /**
-     * 
+     * Método set para hijo izquierdo.
      * @param izq
      */
     public void setIzq(CompositeEA izq){
-        this.izq=izq;
+        this.izq = izq;
     }
     
     /**
-     *
+     * Método set para hijo derecho.
      * @param der
      */
     public void setDer(CompositeEA der){
-        this.der=der;
+        this.der = der;
     }
     
     /**
-     *
-     * @return
+     * Método get para la precedencia.
+     * @return el valor de la precedencia.
      */
     public int getPrecedence(){
         return precedence;
@@ -113,12 +114,16 @@ public abstract class NodoOperador implements CompositeEA{
 	    return new NodoDivision(null,null);
 	case "(":
 	    return new NodoParentesis();
-	case "q":
-	    return new NodoRaizCuadrada(null);
+	//Agregamos la raiz.
+	case "r":
+	    return new NodoRaiz(null);
+	//Agregamos el seno.
 	case "s":
 	    return new NodoSeno(null);
+	//Agregamos el coseno.
 	case "c":
 	    return new NodoCoseno(null);
+	//Agregamos la tangente.
 	case "t":
 	    return new NodoTangente(null);
 	default:
